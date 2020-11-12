@@ -43,6 +43,7 @@ export default function setupTests(app, container) {
 
   app.rootElement = "#ember-testing";
   app.setupForTesting();
+  app.testing = false;
   app.SiteSettings = currentSettings();
   app.start();
 
@@ -197,6 +198,7 @@ export default function setupTests(app, container) {
   // forces 0 as duration for all jquery animations
   jQuery.fx.off = true;
   setApplication(app);
+  app.__container__ = container;
   setDefaultOwner(container);
   resetSite();
 }
